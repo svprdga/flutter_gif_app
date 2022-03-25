@@ -21,7 +21,7 @@ class ErrorLayout extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: marginVert),
             child: Text(
-              'Something went wrong, please contact support@appblaze.io if the problem persists.',
+              'Something went wrong, please contact support if the problem persists.',
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
