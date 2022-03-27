@@ -116,3 +116,5 @@ lib/keys.dart
 
 # Flutter shader files
 *.sksl.json
+
+assets/images/
