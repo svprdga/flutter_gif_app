@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif_app/data/repository/favorite_gif_repository.dart';
 import 'package:flutter_gif_app/domain/gif.dart';
@@ -64,27 +65,34 @@ class _DetailScreenState extends State<DetailScreen> with DesignUtils {
           builder: (context, model, child) => Scaffold(
             appBar: AppBar(
               title: const Text('GIF'),
-              actions: [
-                IconButton(
-                  onPressed: () => model.isFavorite
-                      ? _removeFromFavorites()
-                      : _addToFavorites(),
-                  tooltip:
-                      model.isFavorite ? 'Remove favorite' : 'Add to favorites',
-                  icon: Icon(
-                    model.isFavorite ? Icons.favorite : Icons.favorite_border,
-                    color: Colors.white,
-                  ),
-                ),
-                IconButton(
-                  onPressed: _shareGif,
-                  tooltip: 'Share',
-                  icon: Icon(
-                    isCupertino(context) ? CupertinoIcons.share : Icons.share,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+              actions: kIsWeb
+                  ? null
+                  : [
+                      IconButton(
+                        onPressed: () => model.isFavorite
+                            ? _removeFromFavorites()
+                            : _addToFavorites(),
+                        tooltip: model.isFavorite
+                            ? 'Remove favorite'
+                            : 'Add to favorites',
+                        icon: Icon(
+                          model.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: _shareGif,
+                        tooltip: 'Share',
+                        icon: Icon(
+                          isCupertino(context)
+                              ? CupertinoIcons.share
+                              : Icons.share,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
             ),
             body: ListView(
               children: [

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif_app/domain/gif.dart';
 import 'package:flutter_gif_app/presentation/gifs/gifs_list_model.dart';
@@ -23,7 +24,7 @@ class _GifsListState extends State<GifsList> with DesignUtils {
   final PagingController<int, Gif> _pagingController =
       PagingController(firstPageKey: 0);
   final _gridDelegate = const SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
+    crossAxisCount: kIsWeb ? 8 : 2,
   );
   Object? _activeCallbackIdentity;
 

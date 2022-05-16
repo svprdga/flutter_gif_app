@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif_app/presentation/app/app_model.dart';
 import 'package:flutter_gif_app/presentation/favorites/favorites.dart';
@@ -45,20 +46,22 @@ class MainScreen extends StatelessWidget with DesignUtils {
               ],
             ),
             body: tab,
-            bottomNavigationBar: BottomNavigationBar(
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.gif),
-                  label: 'GIFs',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite),
-                  label: 'Favorites',
-                )
-              ],
-              currentIndex: bloc.mainTab.index,
-              onTap: (int index) => bloc.mainTab = MainTab.values[index],
-            ),
+            bottomNavigationBar: kIsWeb
+                ? null
+                : BottomNavigationBar(
+                    items: const [
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.gif),
+                        label: 'GIFs',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: 'Favorites',
+                      )
+                    ],
+                    currentIndex: bloc.mainTab.index,
+                    onTap: (int index) => bloc.mainTab = MainTab.values[index],
+                  ),
           );
         },
       ),
