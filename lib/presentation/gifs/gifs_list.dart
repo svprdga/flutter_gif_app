@@ -24,7 +24,7 @@ class _GifsListState extends State<GifsList> with DesignUtils {
   final PagingController<int, Gif> _pagingController =
       PagingController(firstPageKey: 0);
   final _gridDelegate = const SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: kIsWeb ? 8 : 2,
+    crossAxisCount: kIsWeb ? 15 : 2,
   );
   Object? _activeCallbackIdentity;
 

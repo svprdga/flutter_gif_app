@@ -294,11 +294,13 @@ class _CreatedBy extends StatelessWidget {
 
     Widget usernameWidget;
     if (profileUrl != null) {
+      final uri = Uri.parse(profileUrl!);
+
       usernameWidget = TextButton(
         child: Text(finalName),
         onPressed: () async {
-          if (await canLaunch(profileUrl!)) {
-            launch(profileUrl!);
+          if (await canLaunchUrl(uri)) {
+            launchUrl(uri);
           }
         },
       );
