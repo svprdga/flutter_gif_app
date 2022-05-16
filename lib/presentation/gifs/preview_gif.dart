@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif_app/domain/gif.dart';
 import 'package:flutter_gif_app/presentation/detail/detail_screen.dart';
@@ -25,15 +26,17 @@ class PreviewGif extends StatelessWidget {
         right: isInLeft ? 0.0 : margin,
       ),
       child: GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailScreen(
-              gif: gif,
-              onFavoriteChange: onFavoriteChange,
-            ),
-          ),
-        ),
+        onTap: kIsWeb
+            ? null
+            : () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                      gif: gif,
+                      onFavoriteChange: onFavoriteChange,
+                    ),
+                  ),
+                ),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
           child: FittedBox(
