@@ -24,3 +24,8 @@ final giphyApiKey = Platform.isAndroid
 - `/Static Logos/Large/Light Backgrounds/Poweredby_640px-White_HorizText.png` => `assets/images/img_giphy_light.png`
 
 (*) The path or name of the files may not be exactly what is indicated here.
+
+## Notes
+
+- This project was tested with Flutter 3.
+- Compatible with Android, iOS and Web platforms.
